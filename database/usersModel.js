@@ -6,8 +6,13 @@ add = (user) => {
     return db('users').insert(user)
 }
 
+login = (username) => {
+    return db('users')
+        .where('username', username)
+        .first();
+}
 
 
 module.exports = {
-    add,
+    add, login
 }
