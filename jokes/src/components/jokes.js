@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import axios from 'axios';
+import { OuterBox, Joke, List, JokeHeader } from './styledComponents';
 
 class Jokes extends React.Component {
     constructor(props){
@@ -39,31 +40,31 @@ class Jokes extends React.Component {
     content = () => {
         if(this.state.loading){
             return(
-                <div>
+                <OuterBox>
                     <h3>Loading...</h3>
-                </div>
+                </OuterBox>
             )
         }
-        
+
         if(this.state.loggedIn){
             return(
-                <div>
-                    <h1 className='header'>EPIC DAD JOKES</h1>
-                    <ul>
+                <OuterBox>
+                    <JokeHeader className='header'>EPIC DAD JOKES</JokeHeader>
+                    <List>
                         {this.state.jokes.map(joke => {
                             return(
-                            <div key={joke.id} className="joke">
+                            <Joke key={joke.id} className="joke">
                                 <p>{joke.joke}</p>
-                            </div> )
+                            </Joke> )
                         })}
-                    </ul>
-                </div>
+                    </List>
+                </OuterBox>
             )
         } else {
             return(
-                <div>
+                <OuterBox>
                     <p>You must be logged in to view the epic Dad Jokes!</p>
-                </div>
+                </OuterBox>
             )
         }
 
