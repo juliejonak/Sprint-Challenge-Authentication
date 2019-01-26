@@ -5,6 +5,7 @@ import {withRouter} from 'react-router';
 import Register from './register';
 import Jokes from './jokes';
 import Login from './login';
+import Home from './home';
 
 class NavBar extends Component {
     render(){
